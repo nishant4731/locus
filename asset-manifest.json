@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/locus/static/css/main.891ce879.css",
+    "main.js": "/locus/static/js/main.691e66d9.js",
+    "static/js/787.28cb0dcd.chunk.js": "/locus/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/locus/index.html",
+    "main.891ce879.css.map": "/locus/static/css/main.891ce879.css.map",
+    "main.691e66d9.js.map": "/locus/static/js/main.691e66d9.js.map",
+    "787.28cb0dcd.chunk.js.map": "/locus/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.891ce879.css",
+    "static/js/main.691e66d9.js"
+  ]
+}
