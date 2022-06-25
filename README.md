@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+## shortcutkeyReact
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```javascript
+import React from 'react'
+import useKeyboardShortcut from 'use-keyboard-shortcut'
 
-## Available Scripts
+const App = () => {
+  const { flushHeldKeys } = useKeyboardShortcut(
+    ["Shift", "H"],
+    shortcutKeys => console.log("Shift + H has been pressed."),
+    { 
+      overrideSystem: false,
+      ignoreInputFields: false, 
+      repeatOnHold: false 
+    }
+  );
 
-In the project directory, you can run:
+  return (
+    <div>Hello World</div>
+  )
+}
+```
 
-### `npm start`
+### Documentation
+```javascript
+const { flushHeldKeys } = useKeyboardShortcut(shortcutArray, callback, options)
+```
+| Hook Return | Type | Description |
+|--------------|-----------|------------|
+| `flushHeldKeys` | `Function` | Function to flush the array of held keys used for keydown tracking. This can help fixing "stuck" keys. |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Hook Parameter | Type | Description |
+|--------------|-----------|------------|
+| `shortcutArray` | `Array` | Array of `KeyboardEvent.key` strings. A full list of strings can be seen [here](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) |
+| `callback` | `Function` | Function that is called once the keys have been pressed. |
+| `options` | `Object` | Object containing some configuration options. [See options section](https://github.com/arthurtyukayev/use-keyboard-shortcut#options) |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Options
 
-### `npm test`
+A list of possible options to put in the options object passed as the third parameters to the hook.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Option | Default | Description |
+|--------------|-----------|------------|
+| `overrideSystem` | `false` | Overrides the default browser behavior for that specific keyboard shortcut. [See caveats section](https://github.com/arthurtyukayev/use-keyboard-shortcut#caveats) |
+| `ignoreInputFields` | `true` | Allows enabling and disabling the keyboard shortcuts when pressed inside of input fields. |
+| `repeatOnHold` | `true` | Determines whether the callback function should fire on repeat when keyboard shortcut is held down. |
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
